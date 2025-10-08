@@ -8,3 +8,4 @@ nautilus
 neofetch
 ttf-jetbrains-mono-nerd
 noto-fonts
+adw-gtk-theme
