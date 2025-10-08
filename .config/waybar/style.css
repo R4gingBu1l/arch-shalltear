@@ -1,0 +1,75 @@
+@import "colors.css";
+
+* {
+    border: none;
+    font-family: "MS Gothic", "JetBrainsMono Nerd Font Propo";
+
+    /* Change font size here */
+    font-size: 20px;
+
+    min-height: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: @surface;
+    color: @on_surface;
+}
+
+.modules-left,
+.modules-right {
+    margin: 0 10px;
+}
+
+tooltip {
+    background: @background;
+    border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+    color: @on_surface;
+}
+
+#workspaces {
+    background-color: transparent;
+    transition: all 200ms ease-in-out;
+}
+
+#workspaces button {
+    background-color: @secondary;
+    color: @inverse_primary;
+    margin: 7px 2px;
+    transition: all 200ms ease-in-out;
+}
+
+#workspaces button.active {
+    background-color: @inverse_primary;
+    color: @on_surface;
+    transition: all 250ms ease-in-out;
+    font-weight: 700;
+}
+
+#workspaces button:hover {
+    color: @background;
+}
+
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#backlight,
+#custom-weather {
+    color: @on_primary_container;
+    margin: 0 10px;
+}
+
+#clock {
+    font-weight: 700;
+}
+
+#window {
+    margin: 0 10px;
+}

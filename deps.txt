@@ -1,0 +1,10 @@
+hyprland
+kitty
+rofi
+waybar
+nwg-look
+swww
+nautilus
+neofetch
+ttf-jetbrains-mono-nerd
+noto-fonts
