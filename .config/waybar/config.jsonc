@@ -11,7 +11,8 @@
     "modules-right": [
         "pulseaudio",
         "network",
-        "clock"
+        "clock",
+	"tray"
     ],
     "battery": {
         "format": "{capacity}% {icon}",
@@ -129,5 +130,13 @@
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous",
         "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2>/dev/null"
+    },
+    "tray": {
+	"icon-size": 21,
+	"spacing": 10,
+	"icons": {
+	    "blueman": "bluetooth",
+	    "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+	}
     }
 }
