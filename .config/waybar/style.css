@@ -2,10 +2,10 @@
 
 * {
     border: none;
-    font-family: "MS Gothic", "JetBrainsMono Nerd Font Propo";
+    font-family: "MS Gothic", "JetBrainsMono Nerd Font Propo", sans-serif;
 
     /* Change font size here */
-    font-size: 20px;
+    font-size: 18px;
 
     min-height: 0px;
     margin: 0;

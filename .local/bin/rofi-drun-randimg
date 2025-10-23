@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMG_DIR="${HOME}/.config/rofi/images"
+IMG_DIR="${HOME}/Pictures/Wallpapers/Application"
 
 # Pick a random image safely (handles spaces/newlines, and common formats)
 rand_img="$(
