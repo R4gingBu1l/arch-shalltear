@@ -46,25 +46,12 @@ this to change it to Material colors:
 gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
 ```
 
-## 5. Display manager
-
-Set up GDM (GNOME Display Manager) to get the login screen before you enter Hyprland.
-
-```
-sudo pacman -S gdm
-
-sudo systemctl enable gdm
-
-sudo reboot # MAKE SURE YOU'VE SAVED EVERYTHING
-```
-
-## 6. virt-manager in Waybar
+## 5. virt-manager in Waybar
 
 1. Open virt-manager
 2. Edit -> Preferences -> Under 'General' -> Check 'Enable system tray icon'
 
-
-## 5. Keybinds
+## 6. Keybinds
 
 <table>
   <tr>
@@ -186,6 +173,4 @@ sudo reboot # MAKE SURE YOU'VE SAVED EVERYTHING
 </table>
 
 Scroll up or down using the mouse on the media module in Waybar to skip to the next track or move to the previous.
-
-<br>
 
