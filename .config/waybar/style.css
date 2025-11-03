@@ -1,75 +1,96 @@
 @import "colors.css";
 
 * {
-    border: none;
-    font-family: "MS Gothic", "JetBrainsMono Nerd Font Propo", sans-serif;
-
-    /* Change font size here */
-    font-size: 18px;
-
-    min-height: 0px;
-    margin: 0;
-    padding: 0;
+  border: none;
+  border-radius: 0px;
+  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+  font-size: 1rem;
+  min-height: 0;
+  font-weight: bold;
 }
 
 window#waybar {
-    background: @surface;
-    color: @on_surface;
+  background: transparent;
 }
 
-.modules-left,
 .modules-right {
-    margin: 0 10px;
+  margin-right: 5px;
 }
 
 tooltip {
-    background: @background;
-    border: 1px solid rgba(100, 114, 125, 0.5);
+  background: @surface;
+  border: 1px solid @primary;
+  border-radius: 12px;
 }
 
 tooltip label {
-    color: @on_surface;
+  color: @on_surface;
+  padding: 6px;
 }
 
 #workspaces {
-    background-color: transparent;
-    transition: all 200ms ease-in-out;
+  background: @surface;
+  padding: 8px 5px;
+  border-radius: 16px;
+  color: @on_surface;
 }
 
 #workspaces button {
-    background-color: @secondary;
-    color: @inverse_primary;
-    margin: 7px 2px;
-    transition: all 200ms ease-in-out;
+  padding: 0px 6px;
+  margin: 0px 3px;
+  border-radius: 50px;
+  color: transparent;
+  background: @surface_container;
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    background-color: @inverse_primary;
-    color: @on_surface;
-    transition: all 250ms ease-in-out;
-    font-weight: 700;
+  background-color: @primary;
+  color: @surface;
+  min-width: 50px;
+  transition: all 0.3s ease-in-out;
+  font-size: 13px;
 }
 
 #workspaces button:hover {
-    color: @background;
+  background-color: @secondary;
+  color: @surface;
+  border-radius: 16px;
+  min-width: 50px;
+  background-size: 400% 400%;
 }
 
-#clock,
+#workspaces button.urgent {
+  background-color: @error;
+  color: @surface;
+  border-radius: 16px;
+  min-width: 50px;
+  background-size: 400% 400%;
+  transition: all 0.3s ease-in-out;
+}
+
 #battery,
 #pulseaudio,
-#network,
-#cpu,
-#memory,
 #backlight,
-#custom-weather {
-    color: @on_primary_container;
-    margin: 0 10px;
+#custom-pacman,
+#network,
+#clock,
+#custom-weather,
+#custom-media,
+#window,
+#custom-launcher,
+#custom-notification,
+#submap,
+#power-profiles-daemon,
+#tray,
+#custom-home-folder {
+  background-color: @surface;
+  padding: 0 15px 0 15px;
+  margin: 0 0 0 7px;
+  border-radius: 50px;
+  color: @primary;
 }
 
-#clock {
-    font-weight: 700;
-}
-
-#window {
-    margin: 0 10px;
+#custom-launcher {
+  margin: 0 0 0 5px;
 }

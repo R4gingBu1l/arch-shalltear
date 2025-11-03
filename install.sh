@@ -3,7 +3,7 @@
 # -- Install dependencies
 echo -e "\n\e[1;34mInstalling dependencies...\e[0m\n"
 
-yay -S --needed --noconfirm hyprland waybar kitty power-profiles-daemon hyprsunset hyprlock rofi papirus-icon-theme ttf-jetbrains-mono-nerd adw-gtk-theme qt5ct swww kvantum kvantum-qt5 brightnessctl swaync gtk-engine-murrine gtk-engines matugen-bin nwg-look papirus-folders playerctl nerd-fonts-noto-sans-mono blueman grim thunar hypridle rofi-calc slurp exa pavucontrol grimblast-git htop vesktop-bin nvidia nvidia-utils lib32-nvidia-utils vulkan-icd-loader lib32-vulkan-icd-loader upscayl-bin unityhub qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode ebtables iptables gdm
+# yay -S --needed hyprland waybar kitty power-profiles-daemon hyprsunset hyprlock rofi papirus-icon-theme ttf-jetbrains-mono-nerd adw-gtk-theme qt5ct swww kvantum kvantum-qt5 brightnessctl swaync gtk-engine-murrine gtk-engines matugen-bin nwg-look papirus-folders playerctl nerd-fonts-noto-sans-mono blueman grim thunar hypridle rofi-calc slurp exa pavucontrol grimblast-git htop vesktop-bin nvidia nvidia-utils vulkan-icd-loader upscayl-bin unityhub qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat dmidecode ebtables iptables gdm
 
 # -- Install fonts
 echo -e "\n\e[1;34mInstalling fonts...\e[0m\n"
@@ -28,20 +28,13 @@ gsettings set org.gnome.desktop.wm.preferences titlebar-font 'MS Gothic Bold 12'
 # -- Move config files to their places
 echo -e "\n\e[1;34mCopying configuration files over...\e[0m\n"
 
-mkdir -p ~/.icons
-cp -a .icons/Simp1e-Dark ~/.icons/
+cp -a ./.config/* ~/.config
+cp -a ./.themes ~/
+cp .gtkrc-2.0 ~/
 
-rofi_theme_dir=".config/rofi"
-mkdir -p ~/$rofi_theme_dir
-cp -a ./$rofi_theme_dir/* ~/$rofi_theme_dir/
+mkdir -p ~/Pictures/Wallpapers/{Application,Desktop,Terminal}
 
-themes_dir=".themes"
-mkdir -p ~/$themes_dir
-cp -a ./$themes_dir/* ~/$themes_dir
-
-cp .gtkrc-2.0 ~/.gtkrc-2.0
-
-cp -a ./.config/* ~/.config/
+gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
 
 echo -e "\n\e[1;32mConfiguration files moved successfully!\e[0m\n"
 
@@ -53,9 +46,11 @@ cp ./.local/bin/* "$HOME"/.local/bin
 
 if [[ "$SHELL" == */bash ]]; then
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+    echo 'neofetch' >> ~/.bashrc
     source ~/.bashrc
 elif [[ "$SHELL" == */zsh ]]; then
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+    echo 'neofetch' >> ~/.zshrc
     source ~/.zshrc
 elif [[ "$SHELL" == */fish ]]; then
     echo 'set -Ux PATH $HOME/.local/bin $PATH' >> ~/.config/fish/config.fish
@@ -64,6 +59,11 @@ else
 fi
 
 # -- Install apps
+# Install power-profiles-daemon
+echo -e "\n\e[1;34mInstalling power-profiles-daemon...\e[0m\n"
+sudo systemctl enable --now power-profiles-daemon.service
+powerprofilesctl set performance
+
 # Install virt-manager
 echo -e "\n\e[1;34mInstalling virt-manager...\e[0m\n"
 sudo systemctl enable --now libvirtd.service
@@ -110,7 +110,7 @@ EOF
 echo -e "\e[1;32mmultilib repository enabled.\e[0m"
 
 # Update and install Steam
-sudo pacman -S --needed --noconfirm steam
+sudo pacman -Sy --needed steam lib32-nvidia-utils lib32-vulkan-icd-loader
 
 # Install GDM
 echo -e "\n\e[1;34mInstalling GDM (GNOME Display Manager)...\e[0m\n"
@@ -125,17 +125,6 @@ echo -e "║  IMPORTANT: System needs to reboot to apply changes    ║"
 echo -e "║  Please save all your work before proceeding!          ║"
 echo -e "╚════════════════════════════════════════════════════════╝"
 echo -e "\e[0m"
-
-# Prompt user for reboot
-read -p "Do you want to reboot now? (y/n): " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo -e "\n\e[1;34mRebooting in 5 seconds... Press Ctrl+C to cancel.\e[0m\n"
-    sleep 5
-    sudo reboot
-else
-    echo -e "\n\e[1;33mReboot cancelled. Please reboot manually when ready: sudo reboot\e[0m\n"
-fi
 
 echo -e "\n\e[1;32mInstallation complete!\e[0m\n"
 
