@@ -44,7 +44,7 @@ Add all your wallpapers to `~/Pictures/Wallpapers/Desktop` and change the theme 
 ## 4. Change GTK theme
 
 Usually, your GTK theme will be one that you've chosen specifically or the default. Run
-this to change it to Material colors:
+this to change it to material colours:
 
 ```
 gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
