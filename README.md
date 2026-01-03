@@ -35,7 +35,7 @@ powerprofilesctl set performance
 
 ## 3. Change Wallpapers 
 
-Add all your wallpapers to `~/Pictures/Wallpapers/Desktop` and change the theme by pressing Super + T. If you want to change the wallpaper directory, open `~/.local/bin/walset` and change `WALL_DIR` to the path where you store wallpapers.
+Add all your wallpapers to `~/Pictures/Wallpapers` and change the theme by pressing Super + T. If you want to change the wallpaper directory, open `~/.local/bin/walset` and change `WALL_DIR` to the path where you store wallpapers.
 
 1. `~/Pictures/Wallpapers/Desktop` = Desktop Wallpapers
 2. `~/Pictures/Wallpapers/Terminal` = Kitty Wallpapers
